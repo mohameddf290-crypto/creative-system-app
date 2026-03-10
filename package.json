@@ -1,0 +1,17 @@
+{
+  "name": "creative-system-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter frontend dev",
+    "build": "pnpm --filter frontend build",
+    "tauri": "pnpm --filter frontend tauri",
+    "preview": "pnpm --filter frontend preview",
+    "lint": "pnpm --filter frontend lint",
+    "format": "pnpm --filter frontend format",
+    "test": "pnpm --filter frontend test"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

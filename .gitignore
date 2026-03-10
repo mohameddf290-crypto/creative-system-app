@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.turbo/
+*.log
+.env
+.env.local
+.env.*.local
+
+# Tauri build artifacts
+src-tauri/target/
+src-tauri/WixTools/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# pnpm
+.pnpm-store/
