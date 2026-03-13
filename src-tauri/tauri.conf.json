@@ -1,0 +1,37 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeDevCommand": "pnpm dev --filter frontend",
+    "beforeBuildCommand": "pnpm build --filter frontend",
+    "devPath": "http://localhost:5173",
+    "distDir": "../packages/frontend/dist"
+  },
+  "package": {
+    "productName": "Creative System",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": { "all": false, "open": true }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.creativesystem.app",
+      "icon": []
+    },
+    "security": { "csp": null },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Creative System",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 600
+      }
+    ]
+  }
+}
