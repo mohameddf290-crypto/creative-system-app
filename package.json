@@ -1,0 +1,12 @@
+{
+  "name": "creative-system-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter frontend dev",
+    "build": "pnpm --filter frontend build",
+    "tauri": "pnpm --filter frontend tauri",
+    "lint": "pnpm --filter frontend lint",
+    "test": "pnpm --filter frontend test"
+  }
+}
