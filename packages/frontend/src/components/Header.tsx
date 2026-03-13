@@ -4,10 +4,13 @@ import { useStore } from '../store';
 const VIEW_LABELS: Record<string, string> = {
   '/dashboard': 'Dashboard',
   '/projects': 'Projects',
+  '/soundmatch': 'SoundMatch',
   '/chords': 'Chords',
   '/melody': 'Melody',
   '/lyrics': 'Lyrics',
+  '/topline': 'Topline',
   '/engineering': 'Engineering',
+  '/settings': 'Settings',
 };
 
 function Header() {

@@ -52,9 +52,23 @@ export interface EngineeringNote {
   settings: Record<string, string>;
 }
 
+export interface AppSettings {
+  theme: 'dark' | 'light';
+  audioDevice: string;
+  defaultProjectDir: string;
+}
+
+const DEFAULT_SETTINGS: AppSettings = {
+  theme: 'dark',
+  audioDevice: 'System Default',
+  defaultProjectDir: '~/Documents/CreativeSystem',
+};
+
 interface AppStore {
   currentView: string;
   activeProjectId: string | null;
+  sidebarCollapsed: boolean;
+  settings: AppSettings;
   projects: Project[];
   chordProgressions: ChordProgression[];
   melodyLines: MelodyLine[];
@@ -63,6 +77,8 @@ interface AppStore {
 
   setCurrentView: (view: string) => void;
   setActiveProject: (id: string) => void;
+  setSidebarCollapsed: (collapsed: boolean) => void;
+  updateSettings: (updates: Partial<AppSettings>) => void;
 
   addProject: (project: Omit<Project, 'id' | 'createdAt' | 'updatedAt'>) => void;
   updateProject: (id: string, updates: Partial<Project>) => void;
@@ -89,6 +105,8 @@ export const useStore = create<AppStore>()(
     (set) => ({
       currentView: 'dashboard',
       activeProjectId: mockProjects[0]?.id ?? null,
+      sidebarCollapsed: false,
+      settings: DEFAULT_SETTINGS,
       projects: mockProjects,
       chordProgressions: mockChordProgressions,
       melodyLines: mockMelodyLines,
@@ -97,6 +115,9 @@ export const useStore = create<AppStore>()(
 
       setCurrentView: (view) => set({ currentView: view }),
       setActiveProject: (id) => set({ activeProjectId: id }),
+      setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
+      updateSettings: (updates) =>
+        set((state) => ({ settings: { ...state.settings, ...updates } })),
 
       addProject: (project) =>
         set((state) => ({
