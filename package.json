@@ -1,0 +1,13 @@
+{
+  "name": "creative-system-app",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["packages/frontend"],
+  "scripts": {
+    "dev": "pnpm --filter frontend dev",
+    "build": "pnpm --filter frontend build",
+    "format": "pnpm --filter frontend format",
+    "lint": "pnpm --filter frontend lint",
+    "test": "pnpm --filter frontend test"
+  }
+}
